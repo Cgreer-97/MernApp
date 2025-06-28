@@ -1,23 +1,22 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
-import About from './pages/About';
+import Register from './pages/Register';
+import Login from './pages/Login';
+import Protected from './pages/Protected';
 import './App.css';
 
-
-function App() {
+export default function App() {
   return (
-    <BrowserRouter>
-      <nav style={{ marginBottom: '20px' }}>
-        <Link to="/" style={{ marginRight: '10px' }}>Home</Link>
-        <Link to="/about">About</Link>
+    <Router>
+      <nav>
+        <Link to="/">Home</Link> | <Link to="/register">Register</Link> | <Link to="/login">Login</Link>
       </nav>
-
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/protected" element={<Protected />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
-
-export default App;
